@@ -13,54 +13,60 @@
 <body>
     <div class="container">
         <div class="parent-layout">
-            <div class="left-side-pane">
-                <ul class="left-pane-list">
-                    <li class="pane-header">
-                        <a asp-controller="Home" asp-action="Index">
-                            Academic Hub
-                        </a>
-                    </li>
-                    <li class="pane-item">
-                        <a asp-controller="Home" asp-action="Index">
-                            Dashboard
-                        </a> 
-                    </li>
-                    <li class="pane-item">
-                        <a asp-controller="Home" asp-action="Profile">
-                            Profile
-                        </a>
-                    </li>
-                    <li class="pane-item">
-                        <a asp-controller="Home" asp-action="StudentProgress">
-                            Student Progress
-                        </a>
-                    </li>
-                    <li class="pane-item">
-                        <a asp-controller="Meeting" asp-action="Index">
-                            Meetings
-                        </a>
-                    </li>
-                    <li class="pane-item">
-                        <a asp-controller="Home" asp-action="Notification">
-                            Notifications
-                        </a>
-                    </li>
-                    <li class="pane-item">
-                        <a asp-controller="Resource" asp-action="Index">
-                            Resources
-                        </a>
-                    </li>
-                    <li class="pane-item">
-                        <a asp-controller="Home" asp-action="Logout">
-                            Logout
-                        </a>
-                    </li>
-                </ul>
+            <div id="sidePane" class="left-side-pane primary-background-color">
+                    <ul class="left-pane-list">
+                        <li class="pane-header pane-brand">
+                            <a asp-controller="Home" asp-action="Index">
+                                Academic Hub
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <a asp-controller="Home" asp-action="Index">
+                                Dashboard
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <a asp-controller="Home" asp-action="Profile">
+                                Profile
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <a asp-controller="Home" asp-action="StudentProgress">
+                                Student Progress
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <a asp-controller="Meeting" asp-action="Index">
+                                Meetings
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <a asp-controller="Home" asp-action="Notification">
+                                Notifications
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <a asp-controller="Resource" asp-action="Index">
+                                Resources
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <a asp-controller="Home" asp-action="Logout">
+                                Logout
+                            </a>
+                        </li>
+                        <li class="pane-item">
+                            <button onclick="toggleSide()" class="btn btn-group-toggle">
+                                <span>Close</span>
+                            </button>
+                        </li>
+                    </ul>
             </div>
-            <div class="main-pane">
+            <div id="main-pane" class="main-pane">
                 <header>
-                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                    <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3 mt-3">
                         <div class="container-fluid">
+                            <button class="btn btn-close" id="paneToggler" onclick="toggleSide()" type="button">Menu</button>
                             <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                                 <ul class="navbar-nav flex-grow-1  justify-content-end">
                                     <li class="nav-item">

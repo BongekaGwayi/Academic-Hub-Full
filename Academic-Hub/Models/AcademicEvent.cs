@@ -14,5 +14,6 @@ namespace Academic_Hub.Models
     {
         public int SubjectId { get; set; }
         public string EventType { get; set; }
+        public string EventMessage { get; set; }
     }
 }

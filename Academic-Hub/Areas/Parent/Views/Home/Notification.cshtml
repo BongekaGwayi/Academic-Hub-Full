@@ -7,22 +7,58 @@
     <div class="main-card-item">
         <div class="card-item-section">
             <div class="card-item-header">
-                <h5>
-                    Announcements
+                <h5 >
+                    <span class="primary-background-color roundy">
+                        Announcements
+                    </span>
                 </h5>
             </div>
             <div class="card-item-body">
-
+                @if (Model.announcements.Count > 0)
+                {
+                    @foreach (var a in Model.announcements)
+                    {
+                        <div class="card-item-body-top">
+                            <h4>@a.GetAnnouncerName(a.Announcer)</h4>
+                        </div>
+                        <div class="card-item-body-middle cut-text">
+                            @a.Message
+                        </div>
+                    }
+                }
+                else{
+                    <div class="card-item-body-top">
+                        <h4 class="primary-background-color roundy">No announcement</h4>
+                        </div>
+                }
             </div>
         </div>
         <div class="card-item-section">
             <div class="card-item-header">
                 <h5>
-                    Upcoming Events
+                    <span class="primary-background-color roundy">
+                        Upcoming Events
+                    </span>
                 </h5>
             </div>
             <div class="card-item-body">
-
+                @if (Model.subjectEvents.Count > 0)
+                {
+                    @foreach (var e in Model.subjectEvents)
+                    {
+                        <div class="card-item-body-top">
+                            <h4>@e.EventType</h4>
+                        </div>
+                        <div class="card-item-body-middle">
+                            @e.EventMessage
+                        </div>
+                    }
+                }
+                else{
+                    <div class="card-item-body-top">
+                        <h4>No events available</h4>
+                    </div>
+                }
             </div>
         </div>
     </div>

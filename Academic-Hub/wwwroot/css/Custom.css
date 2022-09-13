@@ -1,4 +1,19 @@
 ﻿body {
+
+}
+main{
+    min-height: 78vh;
+}
+.primary-background-color {
+    background-image: linear-gradient(rgba(0,0,255, 0.68), rgba(0,0,255, 0.75));
+}
+.image-bg{
+    padding: 0 !important;
+}
+.image-students-in-uniform{
+    background-image: url('../images/school-students-uniform.jpg');
+    background-position: center;
+    background-size: cover;
 }
 nav{
     padding-bottom: 1em;
@@ -12,21 +27,19 @@ nav{
     flex-direction: row;
     margin: 5em;
 }
-.card-item{
+.card-item {
     flex-grow: 1;
-    border: 2px solid black;
     padding: 2em;
 }
 .parent-layout {
     display: flex;
     flex-direction: row;
     margin: .2em;
-    border: 1px solid black;
 }
 .left-side-pane {
-    border-right: 1px solid black;
     padding: 1em;
-    width: 300px
+    width: 300px;
+
 }
 .left-pane-list{
     list-style: none;
@@ -38,13 +51,25 @@ nav{
     margin: .25em;
     margin-bottom: 4em;
 }
+.pane-brand a{
+    text-decoration: none;
+    color: white;
+}
+.pane-brand a:visited{
+    color: white;
+
+}
+    .pane-brand:hover {
+        color: white;
+        text-decoration: none;
+    }
 .pane-item, .pane-item a{
-    color: black;
+    color: white;
     margin: .25em;
     overflow: hidden;
     text-decoration: none;
 }
- .pane-item a:hover{
+ .pane-item:hover{
     color: white;
     background: silver;
     cursor: pointer;
@@ -56,6 +81,14 @@ nav{
 }
     .main-pane header {
         box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+        height: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        background: white;
+    }
+    .main-pane header nav{
+        border-bottom:none !important;
     }
     .main-pane main {
         padding: 1em;
@@ -65,7 +98,7 @@ nav{
     flex-direction: row;
 }
 .main-card-item {
-    width: 600px;
+    width: 100%;
     background-color: white;
     box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
     border: 1px solid silver;
@@ -115,10 +148,10 @@ nav{
     padding-right: 5em;
 }
 .list-main-text{
-    font-size: 2em;
+    font-size: 1em;
 }
 .list-minor-text{
-    font-size: .5em;
+    font-size: .8em;
     color: darkslategrey;
 }
 .secondary-list{
@@ -135,4 +168,101 @@ nav{
 }
 .secondary-list a:visited{
     color: black;
+}
+.card-item-body-middle{
+
+}
+.cut-text{
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.roundy{
+    border-radius: 5px;
+    padding: .2em;
+    margin: .3em;
+}
+@media screen and (max-width: 800px){
+    .card-container{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .container {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
+    #paneToggler{
+        display: none;
+    }
+    #sidePane{
+        display: none;
+    }
+}
+@media screen and (max-width: 1080px) {
+    .card-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
+    #paneToggler {
+        display: inline-block;
+    }
+}
+@media screen and (max-width: 600px){
+    .image-students-in-uniform{
+        display: none;
+    }
+    .card-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    #paneToggler {
+        display: none;
+    }
+
+    #sidePane {
+        display: none;
+    }
+}
+@media screen and (max-width: 992px) {
+    .parent-layout{
+        width: 100%;
+    }
+    .main-pane{
+        width: 100%;
+    }
+    .image-students-in-uniform {
+        display: none;
+    }
+
+    .card-container {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .container {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+    }
+
+    #paneToggler {
+        display: inline-block;
+    }
+
+    #sidePane {
+        display: none;
+    }
 }

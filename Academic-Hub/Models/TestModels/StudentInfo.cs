@@ -108,21 +108,28 @@ namespace Academic_Hub.Models.TestModels
                 EventId = 7091,
                 EventName = "Assessment 1",
                 EventTime = DateTime.Today.AddDays(1).AddHours(12),
+                EventMessage = "A Mathematics Test has been made available in Content Area: Test 2",
                 SubjectId = 10101,
+                EventType = "Test"
             },
             new SubjectEvent()
             {
                 EventId = 7092,
-                EventName = "Assessment 2",
+                EventName = "Assignment 2",
                 EventTime = DateTime.Today.AddDays(1).AddHours(10),
+                EventMessage = "Assignment 1 is due",
                 SubjectId = 10101,
+                EventType = "Assignment"
+
             },
             new SubjectEvent()
             {
                 EventId = 7093,
-                EventName = "Quiz",
+                EventName = "Quiz 2",
                 EventTime = DateTime.Today.AddDays(1).AddHours(11),
+                EventMessage = "Attempt Quiz 2 before it closes",
                 SubjectId = 10101,
+                EventType = "Quiz",
             },
         };
         private static List<Announcement> _announcements = new List<Announcement>()

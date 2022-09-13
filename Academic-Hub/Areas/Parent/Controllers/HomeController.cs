@@ -45,7 +45,8 @@ namespace Academic_Hub.Areas.Parent.Controllers
         }
         public IActionResult Notification()
         {
-            return View();
+            var model = new NotificationsViewModel();
+            return View(model);
         }
     }
 }
