@@ -1,0 +1,69 @@
+﻿@model List<Student_Subject>
+@{
+    ViewData["Title"] = "Student Progress";
+    var student = StudentInfo.GetStudent(UserLogger.GetLoggedParent().Id);
+}
+<h1>Student Progress</h1>
+<div class="main-card-item" style="width: 95%;">
+    <div class="card-item-header">
+        <h4>Report</h4>
+    </div>
+    <div class="card-item-body">
+        <div class="card-item-body-top">
+            <div class="sub-heading">
+                Report for @(student.FirstName + " " + student.LastName + " Grade " + student.Grade) 
+            </div>
+            <div>
+                <form asp-controller="Home" asp-action="Search">
+                    <input type="text" name="keyword" placeholder="search" />
+                </form>
+            </div>
+        </div>
+        <div class="card-item-body-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Teacher</th>
+                        <th>Subject</th>
+                        <th>Mark 1</th>
+                        <th>Mark 2</th>
+                        <th>Mark 3</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(var s in Model){
+                        var subject = StudentInfo.GetSubject(s.SubjectId);
+                        var subjectTeacher = UserList.GetTeacher(subject.SubjectTeacherId);
+                        <tr>
+                            <td>@(subjectTeacher.FirstName + " " + subjectTeacher.LastName)</td>
+                            <td>@(subject.SubjectName)</td>
+                            <td>@s.Mark1</td>
+                            <td>@s.Mark2</td>
+                            <td>@s.Mark3</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-item-body-bottom">
+            <div class="pt-2">
+                Showing 1 to 2 of 1
+            </div>
+            <div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" asp-controller="Home" asp-action="StudentProgress">@("<<") </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" asp-controller="Home" asp-action="StudentProgress">1</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" asp-controller="Home" asp-action="StudentProgress">@(">>") </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

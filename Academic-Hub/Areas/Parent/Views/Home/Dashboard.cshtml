@@ -1,0 +1,96 @@
+﻿@model DashboardViewModel
+@{
+    ViewData["Title"] = "Home";
+}
+<h1>Parent Dashboard</h1>
+<div class="main-card-layout">
+    <div class="main-card-item">
+        <div class="card-item-header">
+            <h4></h4>
+        </div>
+        <div class="card-item-body">
+            <div class="card-item-body-top">
+                <h5>Overall Mark</h5>
+            </div>
+            <div>
+                <h4>
+                    @{
+                        var sum = 0;
+                        var subCount = 0;
+                        foreach(var m in Model.stud_sub){
+                            sum += m.Mark1 + m.Mark2 + m.Mark3;
+                            subCount = subCount + 3;
+                        }
+                        @(sum + "/" + subCount*100)
+                    }
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main-card-layout">
+    <div class="main-card-item">
+        <div class="card-item-header">
+            <h4>Student marks</h4>
+        </div>
+        <div class="card-item-body">
+            <div>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <td>Average</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.events.Count > 0)
+                        {
+                            @foreach (var s in Model.stud_sub)
+                            {
+                                var subject = StudentInfo.GetSubject(s.SubjectId);
+                                <tr>
+                                    <td>@subject.SubjectName</td>
+                                    <td>@s.GetAverage()</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td>Empty</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="secondary-card-item">
+        <div class="card-item-header">
+            <h4>Upcoming Events</h4>
+        </div>
+        <div class="card-item-body">
+            <ul class="list-unstyled">
+                @if (Model.events.Count > 0)
+                {
+                    @foreach (var e in Model.events)
+                    {
+                        <li class="m-0 p-d">
+                            <p class="list-main-text">
+                                @e.EventName
+                            </p>
+                            <span class="list-minor-text">
+                            @(e.EventTime.ToString("t") + " " + e.EventTime.ToString("tt"))
+                            </span>
+                            <hr />
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li>Empty</li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>

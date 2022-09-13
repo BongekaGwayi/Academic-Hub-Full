@@ -1,0 +1,102 @@
+﻿@model ReportViewModel
+@{
+    ViewData["Title"] = "Report";
+    var parent = Model.Parent;
+    var sum = 0; var count = 0;
+
+}
+
+<h4>
+    Name of Student(s): @foreach (var s in Model.Students)
+    {
+        @(s.FirstName + " " + s.LastName + " - Grade: " + s.Grade)
+        @if (!(Model.Students.Last() == s))
+        {@(",")}
+    }
+</h4>
+<h2>Parent Name: @(parent.FirstName + " " + parent.LastName)</h2>
+<div class="main-card-layout">
+    <div class="card-items-vertical">
+        <div class="main-card-item">
+            @foreach (var s in Model.Students)
+            {
+                <div class="card-item-header">
+                    <h4>Student: @(s.FirstName + " " + s.LastName)</h4>
+                </div>
+                <div class="card-item-body">
+                    <div class="card-item-body-table">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Subject</th>
+                                    <td>Test Avg</td>
+                                    <td>Assignment Avg</td>
+                                    <td>Total(Level)</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var st in Model.Students_Subjects.FindAll(x => x.StudentId == s.StudentId))
+                                {
+                                    <tr>
+                                        <td>@StudentInfo.GetSubject(st.SubjectId).SubjectName</td>
+                                        <td>@st.GetAverage()</td>
+                                        <td>@st.Mark2</td>
+                                        <td>@st.GetLevel()</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="main-card-item">
+
+        </div>
+    </div>
+    <div class="secondary-card-item-transparent">
+        <div class="main-card-item" style="width: 100%">
+            <div class="card-item-header">
+                <h5>
+                    Meeting Requests
+                </h5>
+            </div>
+            <div class="card-item-body">
+                <h4>@Model.Requests.Count</h4>
+            </div>
+        </div>
+        <div class="main-card-item" style="width: 100%">
+            <div class="card-item-header">
+                <h5>
+                    Student Hours Active
+                </h5>
+            </div>
+            <div class="card-item-body">
+                <h4># Hrs a day </h4>
+            </div>
+        </div>
+        <div class="main-card-item" style="width: 100%">
+            <div class="card-item-header">
+                <h5>
+                    Student Grade Avg
+                </h5>
+            </div>
+            <div class="card-item-body">
+                <h4>
+                    @foreach (var s in Model.Students)
+                    {
+                        @foreach (var ss in Model.Students_Subjects)
+                        {
+                            @if (s.StudentId == ss.StudentId)
+                            {
+                                sum += ss.Mark1 + ss.Mark2 + ss.Mark3;
+                                count++;
+                            }
+                        }
+                    }
+                    @(sum/count)
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>

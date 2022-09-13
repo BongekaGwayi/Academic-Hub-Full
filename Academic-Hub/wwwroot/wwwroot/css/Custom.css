@@ -1,0 +1,110 @@
+﻿body {
+}
+nav{
+    padding-bottom: 1em;
+    padding-top: 1em;
+    background: white;
+}
+.card-container{
+    border-radius: 2px;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.16);
+    display: flex;
+    flex-direction: row;
+    margin: 5em;
+}
+.card-item{
+    flex-grow: 1;
+    border: 2px solid black;
+    padding: 2em;
+}
+.parent-layout {
+    display: flex;
+    flex-direction: row;
+    margin: .2em;
+    border: 1px solid black;
+}
+.left-side-pane {
+    border-right: 1px solid black;
+    padding: 1em;
+    width: 300px
+}
+.left-pane-list{
+    list-style: none;
+    margin-bottom: .25em;
+}
+.pane-header, .pane-item a {
+    font-weight: 300;
+    font-size: 24px;
+    margin: .25em;
+    margin-bottom: 4em;
+}
+.pane-item, .pane-item a{
+    color: black;
+    margin: .25em;
+    overflow: hidden;
+    text-decoration: none;
+}
+ .pane-item a:hover{
+    color: white;
+    background: silver;
+    cursor: pointer;
+}
+
+.main-pane {
+    background: rgba(128, 128, 128, 0.1);
+    width:800px;
+}
+    .main-pane header {
+        box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+    }
+    .main-pane main {
+        padding: 1em;
+    }
+.main-card-layout{
+    display: flex;
+    flex-direction: row;
+}
+.main-card-item {
+    width: 600px;
+    background-color: white;
+    box-shadow: 0 3px 5px 0 rgba(0,0,0,0.5);
+    border: 1px solid silver;
+    margin: 1em;
+    border-radius: 5px;
+}
+.secondary-card-item {
+    width: 300px;
+    background-color: white;
+    border-radius: 5px;
+    margin: 1em;
+}
+.card-item-header{
+    background: rgb(253, 254, 255);
+    padding: .4em;
+    border-bottom: 1px solid rgba(0,0,0, 0.05);
+}
+.card-item-body {
+    padding: 1em;
+}
+.card-item-body ul{
+    list-style: none;
+    padding: 10px;
+}
+.card-item-body-top{
+    padding: .1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-item-body-bottom {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.card-item-body-table{
+    overflow: scroll;
+}
+.car-item-body-body{
+    padding-left: 5em;
+    padding-right: 5em;
+}

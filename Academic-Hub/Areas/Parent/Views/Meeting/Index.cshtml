@@ -1,0 +1,65 @@
+﻿@model List<MeetingRequest>
+@{
+    ViewData["Title"] = "Meetings";
+}
+<h1>Meetings</h1>
+<div class="main-card-item" style="width: 95%;">
+    <div class="card-item-header">
+        <h4>Report</h4>
+    </div>
+    <div class="card-item-body">
+        <div class="card-item-body-top">
+            <div class="sub-heading">
+                <a class="btn btn-primary" asp-controller="Meeting" asp-action="Add">
+                    Request
+                </a>
+            </div>
+            <div>
+                <form asp-controller="Meeting" asp-action="Search">
+                    <input type="text" name="keyword" placeholder="search" />
+                </form>
+            </div>
+        </div>
+        <div class="card-item-body-table">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var m in Model)
+                    {
+                        <tr>
+                            <td>@m.CreatedDate</td>
+                            <td>@m.Subject</td>
+                            <td>@m.Body</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-item-body-bottom">
+            <div class="pt-2">
+                Showing 1 to 2 of 1
+            </div>
+            <div>
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item disabled">
+                            <a class="page-link" asp-controller="Meeting" asp-action="Index">@("<<") </a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" asp-controller="Meeting" asp-action="Index">1</a>
+                        </li>
+                        <li class="page-item disabled">
+                            <a class="page-link" asp-controller="Meeting" asp-action="Index">@(">>") </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>

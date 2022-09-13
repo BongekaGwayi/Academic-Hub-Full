@@ -1,0 +1,51 @@
+﻿@{ 
+    ViewData["Title"] = "Resources";
+}
+<h1>Resources</h1>
+<div class="main-card-layout">
+    <div class="main-card-item">
+        <div class="card-item-section">
+            <div class="card-item-header">
+                Reports...
+            </div>
+            <div class="card-item-body">
+                <a class="btn btn-primary" asp-controller="Resource"
+                   asp-action="GenerateReport">Generate</a>
+            </div>
+        </div>
+        <div class="card-item-section">
+                <div class="card-item-header">
+                    Additional sections
+                </div>
+                <div class="card-item-body">
+                    <ul>
+
+                        @for (var i = 0; i < 4; i++)
+                        {
+                            <li>-</li>
+                        }
+
+                    </ul>
+                </div>
+        </div>
+    </div>
+    <div class="secondary-card-item">
+        <div>
+            <div class="card-item-header">More...</div>
+            <div class="card-item-body">
+                <ul class="secondary-list">
+                    <li>
+                        <a asp-controller="Home" asp-action="FAQ">FAQ</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Help">Help</a>
+                    </li>
+                    <li>
+                        <a asp-controller="Home" asp-action="Contact Us">Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
